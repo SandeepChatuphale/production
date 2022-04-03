@@ -17,5 +17,18 @@ pipeline
                 bat "mvn clean package"
             }
         }
+        
+        
+         stage('Build Docker Image')
+        {
+            steps
+            {
+                script
+                {
+                    bat 'docker build -t sandeepchatuphale/test';
+                }
+            }
+        }
     }
+
 }
