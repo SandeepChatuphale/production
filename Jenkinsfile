@@ -15,7 +15,7 @@ pipeline
             steps 
             {         
                 // Get some code from a GitHub repository
-                git 'https://github.com/SandeepChatuphale/javawebmaven.git'
+                git 'https://github.com/SandeepChatuphale/production.git'
             }
         }
         
