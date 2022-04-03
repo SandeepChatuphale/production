@@ -40,7 +40,7 @@ pipeline
                     withCredentials([string(credentialsId: 'sandeepchatuphale', variable: 'dockerhub')]) 
                     {
                         bat "docker login -u sandeepchatuphale -p ${dockerhub}"
-                        bat 'docker push sandeepchatuphale'
+                        bat 'docker push sandeepchatuphale/test'
                    }
                 }
             }
