@@ -30,6 +30,18 @@ pipeline
         }
         
         
+         stage('Jacoco report')
+        {
+            steps
+            {
+                jacoco()
+            }
+        }
+        
+        
+        
+        
+        
          stage('Build Docker Image')
         {
             steps
