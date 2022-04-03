@@ -25,7 +25,7 @@ pipeline
             {
                 script
                 {
-                    bat 'docker build -t sandeepchatuphale/test'
+                    bat 'docker build -t sandeepchatuphale/test .'
                 }
             }
         }
