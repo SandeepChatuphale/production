@@ -26,6 +26,17 @@ pipeline
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
+        
+         stage('Sonar')
+        {
+            steps
+            {
+                withSonarQubeEnv('mysonar')
+                {
+                    bat 'mvn sonar:sonar'
+                }
+            }
+        }
  
     }
 }
