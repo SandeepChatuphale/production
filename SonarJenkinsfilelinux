@@ -5,8 +5,7 @@ pipeline
     
     environment
      {
-        MAVEN_HOME="/opt/apache-maven-3.8.5/bin/"
-       PATH = "${MAVEN_HOME}\\bin;${env.PATH}"
+        PATH="/opt/apache-maven-3.8.5/bin/"
     }
  
     stages 
