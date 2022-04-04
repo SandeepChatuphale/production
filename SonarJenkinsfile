@@ -68,9 +68,12 @@ pipeline
         {
            steps
            {
-               withCredentials([usernamePassword(credentialsId: 'QAServerCredentailsTest', passwordVariable: 'password', usernameVariable: 'username')]) 
+               script
                {
-                    sh 'docker run -d -p 80:9090 sandeepchatuphale/test'
+                    withCredentials([string(credentialsId: 'sandeepchatuphale', variable: 'password')]) 
+                    {
+                        sh 'docker run -d -p 80:9090 sandeepchatuphale/test'
+                    }
                }
            }
         }
