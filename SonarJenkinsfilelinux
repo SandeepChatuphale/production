@@ -1,1 +1,83 @@
 
+pipeline 
+{
+    agent any
+    
+    //environment
+    //{
+       // M2_HOME = 'D:\\Softwares\\java\\maven3.6.0'
+       // PATH = "${M2_HOME}\\bin;${env.PATH}"
+    //}
+ 
+    stages 
+    { 
+        stage('Package')
+        {
+            steps
+            {
+                sh "mvn clean package"
+            }
+        }
+        
+        /*stage('Sonar Analysis')
+        {
+            steps
+            {
+                withSonarQubeEnv('SonarQube')
+                {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }*/
+      
+        stage('Jacoco report')
+        {
+            steps
+            {
+                jacoco()
+            }
+        }
+         
+        stage('Build Docker Image')
+        {
+            steps
+            {
+                script
+                {
+                    sh 'docker build -t sandeepchatuphale/test .'
+                }
+            }
+        }
+        
+        
+        stage('Pushing Docker Image Dockerhub')
+        {
+            steps
+            {
+                script
+                {
+                    withCredentials([string(credentialsId: 'sandeepchatuphale', variable: 'dockerhub')]) 
+                    {
+                        sh "docker login -u sandeepchatuphale -p ${dockerhub}"
+                        sh 'docker push sandeepchatuphale/test'
+                   }
+                }
+            }
+         }
+         
+        stage('Run Container on QA Server')
+        {
+           steps
+           {
+               script
+               {
+                    sshagent(['ec2-user']) 
+                    {
+                       sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.89.207'
+                       //sh 'docker run -d -p 80:9090 sandeepchatuphale/test'
+                    }
+               }
+           }
+        }
+    }
+}
