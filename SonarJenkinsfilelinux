@@ -15,7 +15,7 @@ pipeline
         {
             steps
             {
-                sh 'mvn -X clean -X package'
+                sh 'mvn clean package'
                // sh 'mvn -version'
                 //echo "${PATH}"
             }
