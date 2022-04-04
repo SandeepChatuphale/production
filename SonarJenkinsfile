@@ -68,9 +68,13 @@ pipeline
         {
             steps
             {
+                def dockerContainer = 'docker run -d -p 80:9090 -name testapp sandeepchatuphale/test'
                 script
                 {
-                    echo 'Run Container on QA Server'
+                    sshagent(['QAServer']) 
+                    {
+                        sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.89.207 ${dockerContainer}'                   
+                    }
                 }
             }
         }
