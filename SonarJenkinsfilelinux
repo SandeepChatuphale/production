@@ -10,7 +10,7 @@ pipeline
  
     stages 
     { 
-        /*stage('Package')
+        stage('Package')
         {
             steps
             {
@@ -18,7 +18,7 @@ pipeline
                 sh 'mvn -version'
             }
         }
-        
+        /*
         stage('Sonar Analysis')
         {
             steps
