@@ -27,7 +27,7 @@ pipeline
                     sh 'mvn sonar:sonar'
                 }
             }
-        }*/
+        }
       
         stage('Jacoco report')
         {
@@ -77,6 +77,6 @@ pipeline
                     }
                }
            }
-        }
+        }*/
     }
 }
