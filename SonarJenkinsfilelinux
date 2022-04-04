@@ -16,7 +16,7 @@ pipeline
             {
                 //sh 'mvn -X clean -X package'
                 //sh 'mvn -version'
-                echo 'ok'
+                mvn -version
             }
         }
         /*
