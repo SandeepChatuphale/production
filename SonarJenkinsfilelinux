@@ -15,7 +15,8 @@ pipeline
             steps
             {
                 //sh 'mvn -X clean -X package'
-                sh 'mvn -version'
+                //sh 'mvn -version'
+                echo 'ok'
             }
         }
         /*
