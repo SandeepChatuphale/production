@@ -72,7 +72,7 @@ pipeline
                {
                     sshagent(['ec2-user']) 
                     {
-                       sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.89.207 
+                       sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.89.207'
                        //sh 'docker run -d -p 80:9090 sandeepchatuphale/test'
                     }
                }
