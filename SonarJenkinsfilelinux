@@ -5,7 +5,8 @@ pipeline
     
     environment
      {
-        PATH="/opt/apache-maven-3.8.5/bin/"
+       MAVEN_HOME = '/opt/apache-maven-3.8.5/bin'
+       PATH = "${MAVEN_HOME}//bin:${env.PATH}"
     }
  
     stages 
@@ -16,7 +17,7 @@ pipeline
             {
                 //sh 'mvn -X clean -X package'
                 //sh 'mvn -version'
-                sh 'mvn -version'
+                echo "${PATH}"
             }
         }
         /*
