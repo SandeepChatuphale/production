@@ -64,11 +64,14 @@ pipeline
             }
          }
          
-          stage('Run Container on QA Server')
+        stage('Run Container on QA Server')
         {
-           withCredentials([usernamePassword(credentialsId: 'QAServerCredentailsTest', passwordVariable: 'password', usernameVariable: 'username')]) 
+           steps
            {
-                sh 'docker run -d -p 80:9090 sandeepchatuphale/test'
+               withCredentials([usernamePassword(credentialsId: 'QAServerCredentailsTest', passwordVariable: 'password', usernameVariable: 'username')]) 
+               {
+                    sh 'docker run -d -p 80:9090 sandeepchatuphale/test'
+               }
            }
         }
     }
