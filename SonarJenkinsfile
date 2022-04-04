@@ -71,11 +71,8 @@ pipeline
             {
                 
                 script
-                {
-                    sshagent(['QAServer']) 
-                    {
-                        sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.89.207 docker run -d -p 80:9090 -name testapp sandeepchatuphale/test'                   
-                    }
+                { 
+                       sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.89.207 docker run -d -p 80:9090 -name testapp sandeepchatuphale/test'                      
                 }
             }
         }
