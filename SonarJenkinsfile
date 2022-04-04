@@ -62,6 +62,17 @@ pipeline
                    }
                 }
             }
-         }           
+         }
+         
+          stage('Run Container on QA Server')
+        {
+            steps
+            {
+                script
+                {
+                    echp 'Run Container on QA Server'
+                }
+            }
+        }
     }
 }
