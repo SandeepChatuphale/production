@@ -10,7 +10,7 @@ pipeline
  
     stages 
     { 
-        stage('Package')
+        /*stage('Package')
         {
             steps
             {
@@ -19,7 +19,7 @@ pipeline
             }
         }
         
-        /*stage('Sonar Analysis')
+        stage('Sonar Analysis')
         {
             steps
             {
