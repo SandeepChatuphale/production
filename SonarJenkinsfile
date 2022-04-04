@@ -66,9 +66,10 @@ pipeline
          
           stage('Run Container on QA Server')
         {
+            def dockerContainer = 'docker run -d -p 80:9090 -name testapp sandeepchatuphale/test'
             steps
             {
-                def dockerContainer = 'docker run -d -p 80:9090 -name testapp sandeepchatuphale/test'
+                
                 script
                 {
                     sshagent(['QAServer']) 
