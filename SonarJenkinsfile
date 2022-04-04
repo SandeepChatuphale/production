@@ -64,14 +64,11 @@ pipeline
             }
          }
             
-         stage('Running Docker container on QA Server')
+        stage('Running Docker container on QA Server')
         {
             steps
-            {
-                script
-                {
-                    echo 'Running Docker on QA'
-                }
+            {                
+                echo 'Running Docker on QA'
             }
         }
     }
