@@ -4,8 +4,8 @@ pipeline
     
     environment
     {
-        M2_HOME = 'D:\\Softwares\\java\\maven3.6.0'
-        PATH = "${M2_HOME}\\bin;${env.PATH}"
+       // M2_HOME = 'D:\\Softwares\\java\\maven3.6.0'
+       // PATH = "${M2_HOME}\\bin;${env.PATH}"
     }
  
     stages 
