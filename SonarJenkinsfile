@@ -54,7 +54,21 @@ pipeline
         }
         
         
-         stage('Pushing Docker Image')
+         stage('Pushing Docker Image Dockerhub')
+        {
+            steps
+            {
+                script
+                {
+                    withCredentials([string(credentialsId: 'sandeepchatuphale', variable: 'dockerhub')]) 
+                    {
+                        bat "docker login -u sandeepchatuphale -p ${dockerhub}"
+                        bat 'docker push sandeepchatuphale/test'
+                   }
+                }
+            }
+            
+         stage('Running Docker container on QA Server')
         {
             steps
             {
