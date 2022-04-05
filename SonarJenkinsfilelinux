@@ -46,7 +46,7 @@ pipeline
             {
                 script
                 {                    
-                    sh 'docker build -t sandeepchatuphale/test .'
+                    sh 'sudo docker build -t sandeepchatuphale/test .'
                 }
             }
         }
