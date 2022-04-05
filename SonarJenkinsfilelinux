@@ -46,6 +46,7 @@ pipeline
             {
                 script
                 {                    
+                    sh 'sudo service docker start'
                     sh 'sudo docker build -t sandeepchatuphale/test .'
                 }
             }
