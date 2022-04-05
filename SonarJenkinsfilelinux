@@ -39,7 +39,7 @@ pipeline
                 jacoco()
             }
         }
-         /*
+        
         stage('Build Docker Image')
         {
             steps
@@ -67,7 +67,7 @@ pipeline
             }
          }
          
-        stage('Run Container on QA Server')
+        /*stage('Run Container on QA Server')
         {
            steps
            {
